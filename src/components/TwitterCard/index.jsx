@@ -2,7 +2,6 @@ import React from "react";
 import { FaTwitter } from "react-icons/fa";
 import twitter from "twitter-text";
 import {
-  CardWrapper,
   CardUsername,
   CardText,
   SocialIconWrapper,
@@ -13,13 +12,13 @@ function TwitterCard({ post }) {
   const innerHtml = { __html: res };
 
   return (
-    <CardWrapper>
+    <>
       <SocialIconWrapper>
         <FaTwitter size="2em" color="white" />
       </SocialIconWrapper>
       <CardUsername>{post.item_data.user.username}</CardUsername>
       <CardText dangerouslySetInnerHTML={innerHtml} />
-    </CardWrapper>
+    </>
   );
 }
 

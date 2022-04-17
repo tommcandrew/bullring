@@ -47,3 +47,8 @@ export const SocialIconWrapper = styled.div`
   position: absolute;
   top: -12px;
 `;
+
+export const CardTimestamp = styled.time`
+  color: ${colors.textLighter};
+  font-size: 12px;
+`;

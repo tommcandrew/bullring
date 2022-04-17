@@ -2,7 +2,6 @@ import React from "react";
 import { FaInstagram } from "react-icons/fa";
 import PropTypes from "prop-types";
 import {
-  CardWrapper,
   CardImageWrapper,
   CardText,
   CardContent,
@@ -17,7 +16,7 @@ function InstagramCard({ post, img }) {
   );
   const innerHtml = { __html: htmlString };
   return (
-    <CardWrapper>
+    <>
       <SocialIconWrapper>
         <FaInstagram size="2em" color="white" />
       </SocialIconWrapper>
@@ -28,7 +27,7 @@ function InstagramCard({ post, img }) {
         <CardUsername>{post.item_data.user.username}</CardUsername>
         <CardText dangerouslySetInnerHTML={innerHtml} />
       </CardContent>
-    </CardWrapper>
+    </>
   );
 }
 

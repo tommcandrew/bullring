@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Masonry from "react-masonry-css";
-import ManualCard from "../ManualCard";
-import InstagramCard from "../InstagramCard";
-import TwitterCard from "../TwitterCard";
+import Card from "../Card";
 import GlobalStyle from "../../styles/global";
 import { AppWrapper } from "../../styles/app";
 import { getRandomImageUrl } from "../../utils/imageUtils";
@@ -41,30 +39,7 @@ function App() {
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {posts.map((post, i) => {
-            if (post.service_name === "Manual") {
-              return (
-                <div key={post.item_id}>
-                  <ManualCard post={post} img={getRandomImageUrl()} />
-                </div>
-              );
-            }
-            if (post.service_name === "Instagram") {
-              return (
-                <div key={post.item_id}>
-                  <InstagramCard post={post} img={getRandomImageUrl()} />
-                </div>
-              );
-            }
-            if (post.service_name === "Twitter") {
-              return (
-                <div key={post.item_id}>
-                  <TwitterCard post={post} />
-                </div>
-              );
-            }
-            return null;
-          })}
+          {posts.map((post) => <Card key={post.item_id} post={post} img={getRandomImageUrl()} />)}
         </Masonry>
       </AppWrapper>
     </>
