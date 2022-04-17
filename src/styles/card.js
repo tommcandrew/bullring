@@ -7,11 +7,15 @@ export const CardWrapper = styled.div`
   border-radius: 6px;
   padding: 0.5rem;
   position: relative;
+  @media (max-width: 700px) {
+    margin: 0 1rem 3rem 1rem;
+  }
 `;
 
 export const CardText = styled.p`
   margin: 1rem 0;
   text-align: center;
+  padding: 1rem 0.5rem;
 `;
 
 export const CardImageWrapper = styled.div`

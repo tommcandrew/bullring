@@ -2,7 +2,7 @@
 import styled from "styled-components";
 
 export const AppWrapper = styled.div`
-  padding: 2rem 0;
+  padding: 5rem;
   .my-masonry-grid {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -13,5 +13,8 @@ export const AppWrapper = styled.div`
   .my-masonry-grid_column {
     padding-left: 30px;
     background-clip: padding-box;
+  }
+  @media (max-width: 700px) {
+    padding: 2rem;
   }
 `;

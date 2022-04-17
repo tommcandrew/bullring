@@ -9,10 +9,9 @@ import { sortItemsByDate } from "../../utils/dateUtils";
 import sortOptions from "../../enums/sortOptions";
 
 const breakpointColumnsObj = {
-  default: 4,
-  1100: 3,
-  700: 2,
-  500: 1,
+  default: 3,
+  1200: 2,
+  700: 1,
 };
 
 function App() {
