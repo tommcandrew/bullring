@@ -22,7 +22,7 @@ function InstagramCard({ post, img }) {
       </SocialIconWrapper>
       <CardContent>
         <CardImageWrapper>
-          <img src={img} alt="#" width="100%" />
+          <img src={img} alt="#" width="100%" loading="lazy" />
         </CardImageWrapper>
         <CardUsername>{post.item_data.user.username}</CardUsername>
         <CardText dangerouslySetInnerHTML={innerHtml} />

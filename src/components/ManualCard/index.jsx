@@ -8,7 +8,7 @@ function ManualCard({ post, img }) {
   return (
     <CardContent>
       <CardImageWrapper>
-        <img src={img} alt="#" width="100%" />
+        <img src={img} alt="#" width="100%" loading="lazy" />
       </CardImageWrapper>
       <CardText>{post.item_data.text}</CardText>
       <CardLinkWrapper>
