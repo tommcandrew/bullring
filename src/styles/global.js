@@ -2,6 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import colors from "./colors";
 
 const GlobalStyle = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
   html {
     height: 100%;
     width: 100%;
@@ -10,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     height: 100%;
-    font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
   * {
     margin: 0;
