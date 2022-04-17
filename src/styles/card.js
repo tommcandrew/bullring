@@ -6,6 +6,7 @@ export const CardWrapper = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
   padding: 0.5rem;
+  position: relative;
 `;
 
 export const CardText = styled.p`
@@ -19,7 +20,7 @@ export const CardImageWrapper = styled.div`
 `;
 
 export const CardLinkWrapper = styled.div`
-    text-align: center;
+  text-align: center;
 `;
 
 export const CardContent = styled.div`
@@ -33,4 +34,16 @@ export const CardUsername = styled.div`
   font-weight: bold;
   text-align: center;
   color: ${colors.heading};
+`;
+
+export const SocialIconWrapper = styled.div`
+  width: 40px;
+  height: 50px;
+  background: black;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -12px;
 `;
