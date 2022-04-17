@@ -6,7 +6,9 @@ import InstagramCard from "../InstagramCard";
 import TwitterCard from "../TwitterCard";
 import GlobalStyle from "../../styles/global";
 import { AppWrapper } from "../../styles/app";
-import { getRandomImageUrl } from "../utils/imageUtils";
+import { getRandomImageUrl } from "../../utils/imageUtils";
+import { sortItemsByDate } from "../../utils/dateUtils";
+import sortOptions from "../../enums/sortOptions";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -17,12 +19,13 @@ const breakpointColumnsObj = {
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [selectedSortOption, setSelectedSortOption] = useState(sortOptions.ASC);
 
   async function fetchData() {
     const res = await axios.get(
       "http://private-cc77e-aff.apiary-mock.com/posts",
     );
-    setPosts(res.data.items);
+    setPosts(sortItemsByDate(res.data.items, selectedSortOption));
   }
 
   useEffect(() => {
