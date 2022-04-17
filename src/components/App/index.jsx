@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Masonry from "react-masonry-css";
-import fashionImages from "../../assets/images/images";
 import ManualCard from "../ManualCard";
 import InstagramCard from "../InstagramCard";
 import TwitterCard from "../TwitterCard";
 import GlobalStyle from "../../styles/global";
 import { AppWrapper } from "../../styles/app";
+import { getRandomImageUrl } from "../utils/imageUtils";
 
 const breakpointColumnsObj = {
   default: 4,
@@ -20,7 +20,7 @@ function App() {
 
   async function fetchData() {
     const res = await axios.get(
-      "http://private-cc77e-aff.apiary-mock.com/posts"
+      "http://private-cc77e-aff.apiary-mock.com/posts",
     );
     setPosts(res.data.items);
   }
@@ -28,12 +28,6 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-
-  useEffect(() => {
-    console.log(posts.filter((post) => post.service_name === "Instagram"));
-  }, [posts]);
-
-  const getRandomImageUrl = () => fashionImages[Math.floor(Math.random() * 20)];
 
   return (
     <>
@@ -48,7 +42,7 @@ function App() {
             if (post.service_name === "Manual") {
               return (
                 <div key={post.item_id}>
-                  <ManualCard post={post} img={fashionImages[i]} />
+                  <ManualCard post={post} img={getRandomImageUrl()} />
                 </div>
               );
             }
