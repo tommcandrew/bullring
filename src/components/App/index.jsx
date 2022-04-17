@@ -17,13 +17,12 @@ const breakpointColumnsObj = {
 
 function App() {
   const [posts, setPosts] = useState([]);
-  const [selectedSortOption, setSelectedSortOption] = useState(sortOptions.ASC);
 
   async function fetchData() {
     const res = await axios.get(
       "http://private-cc77e-aff.apiary-mock.com/posts",
     );
-    setPosts(sortItemsByDate(res.data.items, selectedSortOption));
+    setPosts(sortItemsByDate(res.data.items, sortOptions.ASC));
   }
 
   useEffect(() => {
