@@ -7,19 +7,19 @@ function Filter({ onFilter, currentFilter }) {
   return (
     <FilterWrapper>
       <FilterButton
-        $isActive={currentFilter === cardTypes.MANUAL}
+        isActive={currentFilter === cardTypes.MANUAL}
         onClick={() => onFilter(cardTypes.MANUAL)}
       >
         Manual
       </FilterButton>
       <FilterButton
-        $isActive={currentFilter === cardTypes.TWITTER}
+        isActive={currentFilter === cardTypes.TWITTER}
         onClick={() => onFilter(cardTypes.TWITTER)}
       >
         Twitter
       </FilterButton>
       <FilterButton
-        $isActive={currentFilter === cardTypes.INSTAGRAM}
+        isActive={currentFilter === cardTypes.INSTAGRAM}
         onClick={() => onFilter(cardTypes.INSTAGRAM)}
       >
         Instagram

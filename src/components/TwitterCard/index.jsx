@@ -15,7 +15,7 @@ function TwitterCard({ post }) {
 
   return (
     <>
-      <SocialIconWrapper $type={cardTypes.TWITTER}>
+      <SocialIconWrapper type={cardTypes.TWITTER}>
         <FaTwitter size="2em" color="white" />
       </SocialIconWrapper>
       <CardUsername>{post.item_data.user.username}</CardUsername>

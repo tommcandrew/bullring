@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Masonry from "react-masonry-css";
-import Card from "../Card";
 import GlobalStyle from "../../styles/global";
 import { AppWrapper, LoadMoreButton, Buttons } from "../../styles/app";
 import Filter from "../Filter";
-import fashionImages from "../../assets/images/images";
 import { sortItemsByDate } from "../../utils/dateUtils";
 import sortOptions from "../../enums/sortOptions";
-
-const breakpointColumnsObj = {
-  default: 3,
-  1200: 2,
-  700: 1,
-};
+import Posts from "../Posts";
 
 function App() {
   const [postsData, setPostsData] = useState([]);
@@ -51,14 +43,10 @@ function App() {
     setFetchingMore(true);
     const morePosts = await getData();
     const sortedPosts = sortItemsByDate(morePosts, sortOptions.ASC);
-    setFetchingMore(false);
-    setPostsData([...postsData, ...sortedPosts]);
-  };
-
-  const getImageUrl = (index) => {
-    const pageIndex = Math.floor(index / 20);
-    const imageIndex = index - (20 * pageIndex);
-    return fashionImages[imageIndex];
+    setTimeout(() => {
+      setFetchingMore(false);
+      setPostsData([...postsData, ...sortedPosts]);
+    }, 2000);
   };
 
   const handleFilter = (selectedFilter) => {
@@ -74,25 +62,12 @@ function App() {
       <GlobalStyle />
       <AppWrapper>
         <Filter onFilter={handleFilter} currentFilter={filter} />
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className="my-masonry-grid"
-          columnClassName="my-masonry-grid_column"
-        >
-          {sortedAndFilteredPosts
-            .map((post, i) => (
-              <Card
-                key={Math.random()}
-                post={post}
-                img={getImageUrl(i)}
-              />
-            ))}
-        </Masonry>
+        <Posts posts={sortedAndFilteredPosts} />
         <Buttons>
-          <LoadMoreButton onClick={handleLoadMore} type="button" $loading={fetchingMore}><span>More</span></LoadMoreButton>
+          <LoadMoreButton onClick={handleLoadMore} type="button" loading={fetchingMore}><span>More</span></LoadMoreButton>
         </Buttons>
       </AppWrapper>
     </>
   );
 }
-export default App;
+export default React.memo(App);
