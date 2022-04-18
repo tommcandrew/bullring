@@ -1,16 +1,15 @@
 import React from "react";
 import { FaTwitter } from "react-icons/fa";
-import twitter from "twitter-text";
-import colors from "../../styles/colors";
 import {
   CardUsername,
   CardText,
   SocialIconWrapper,
 } from "../../styles/card";
+import { parseTwitter } from "../../utils/parsingUtils";
 
 function TwitterCard({ post }) {
-  const res = twitter.autoLink(twitter.htmlEscape(post.item_data.tweet));
-  const innerHtml = { __html: res };
+  const tweetHtml = parseTwitter(post.item_data.tweet);
+  const innerHtml = { __html: tweetHtml };
 
   return (
     <>

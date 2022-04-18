@@ -8,13 +8,11 @@ import {
   CardUsername,
   SocialIconWrapper,
 } from "../../styles/card";
+import { parseInstagram } from "../../utils/parsingUtils";
 
 function InstagramCard({ post, img }) {
-  const htmlString = post.item_data.caption.replace(
-    /#(\w+)/g,
-    '<a href="https://instagram.com/explore/tags/$1" target="_blank">#$1</a>'
-  );
-  const innerHtml = { __html: htmlString };
+  const postHtml = parseInstagram(post.item_data.caption);
+  const innerHtml = { __html: postHtml };
   return (
     <>
       <SocialIconWrapper type="Instagram">
