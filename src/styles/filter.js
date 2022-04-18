@@ -17,10 +17,10 @@ export const FilterButton = styled.button`
   text-align: center;
   padding: 0 1rem;
   color: ${({ isActive }) => (isActive ? "white" : "black")};
-  background: ${({ isActive }) => (isActive ? colors.purple : colors.greyLight)};
-  border: 1px solid lightgrey;
+  background: ${({ isActive }) => (isActive ? colors.red : colors.greyLight)};
+  border: ${({ isActive }) => (isActive ? 0 : "1px solid lightgrey")};
   cursor: pointer;
   &:hover {
-    background: ${({ isActive }) => (isActive ? colors.purpleDarker : colors.greyMedium)};
+    background: ${({ isActive }) => (isActive ? colors.redDarker : colors.greyMedium)};
   }
 `;
