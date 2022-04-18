@@ -2,7 +2,6 @@ import { createGlobalStyle } from "styled-components";
 import colors from "./colors";
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
   html {
     height: 100%;
     width: 100%;
@@ -11,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     height: 100%;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'arial', sans-serif;
   }
   * {
     margin: 0;

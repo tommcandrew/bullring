@@ -43,10 +43,8 @@ function App() {
     setFetchingMore(true);
     const morePosts = await getData();
     const sortedPosts = sortItemsByDate(morePosts, sortOptions.ASC);
-    setTimeout(() => {
-      setFetchingMore(false);
-      setPostsData([...postsData, ...sortedPosts]);
-    }, 2000);
+    setFetchingMore(false);
+    setPostsData([...postsData, ...sortedPosts]);
   };
 
   const handleFilter = (selectedFilter) => {
