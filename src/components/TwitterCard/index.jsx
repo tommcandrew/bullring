@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FaTwitter } from "react-icons/fa";
 import {
   CardUsername,
@@ -21,5 +22,10 @@ function TwitterCard({ post }) {
     </>
   );
 }
+
+TwitterCard.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  post: PropTypes.object.isRequired,
+};
 
 export default TwitterCard;

@@ -20,8 +20,13 @@ function Card({ post, img }) {
 }
 
 Card.propTypes = {
-  post: PropTypes.object,
+  // eslint-disable-next-line react/forbid-prop-types
+  post: PropTypes.object.isRequired,
   img: PropTypes.string,
+};
+
+Card.defaultProps = {
+  img: null,
 };
 
 export default Card;

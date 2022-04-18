@@ -30,6 +30,7 @@ function InstagramCard({ post, img }) {
 }
 
 InstagramCard.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   post: PropTypes.object.isRequired,
   img: PropTypes.string.isRequired,
 };

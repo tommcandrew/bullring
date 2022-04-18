@@ -17,4 +17,8 @@ Filter.propTypes = {
   currentFilter: PropTypes.string,
 };
 
+Filter.defaultProps = {
+  currentFilter: null,
+};
+
 export default Filter;

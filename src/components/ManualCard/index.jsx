@@ -19,8 +19,13 @@ function ManualCard({ post, img }) {
 }
 
 ManualCard.propTypes = {
-  post: PropTypes.object,
+  // eslint-disable-next-line react/forbid-prop-types
+  post: PropTypes.object.isRequired,
   img: PropTypes.string,
+};
+
+ManualCard.defaultProps = {
+  img: null,
 };
 
 export default ManualCard;
