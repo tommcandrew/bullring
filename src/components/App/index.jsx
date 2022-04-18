@@ -3,7 +3,7 @@ import axios from "axios";
 import Masonry from "react-masonry-css";
 import Card from "../Card";
 import GlobalStyle from "../../styles/global";
-import { AppWrapper } from "../../styles/app";
+import { AppWrapper, LoadMoreButton, Buttons } from "../../styles/app";
 import Filter from "../Filter";
 import fashionImages from "../../assets/images/images";
 import { sortItemsByDate } from "../../utils/dateUtils";
@@ -19,6 +19,7 @@ function App() {
   const [postsData, setPostsData] = useState([]);
   const [sortedAndFilteredPosts, setSortedAndFilteredPosts] = useState([]);
   const [filter, setFilter] = useState(null);
+  const [fetchingMore, setFetchingMore] = useState(false);
 
   async function getData() {
     const res = await axios.get(
@@ -47,8 +48,10 @@ function App() {
   }, [postsData, filter]);
 
   const handleLoadMore = async () => {
+    setFetchingMore(true);
     const morePosts = await getData();
     const sortedPosts = sortItemsByDate(morePosts, sortOptions.ASC);
+    setFetchingMore(false);
     setPostsData([...postsData, ...sortedPosts]);
   };
 
@@ -85,7 +88,9 @@ function App() {
               />
             ))}
         </Masonry>
-        <button onClick={handleLoadMore} type="button">More</button>
+        <Buttons>
+          <LoadMoreButton onClick={handleLoadMore} type="button" loading={fetchingMore}><span>More</span></LoadMoreButton>
+        </Buttons>
       </AppWrapper>
     </>
   );

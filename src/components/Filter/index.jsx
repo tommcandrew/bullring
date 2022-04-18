@@ -14,7 +14,7 @@ function Filter({ onFilter, currentFilter }) {
 
 Filter.propTypes = {
   onFilter: PropTypes.func.isRequired,
-  currentFilter: PropTypes.string.isRequired,
+  currentFilter: PropTypes.string,
 };
 
 export default Filter;
