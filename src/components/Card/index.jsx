@@ -7,13 +7,14 @@ import { getRelativeTime } from "../../utils/dateUtils";
 import ManualCard from "../ManualCard";
 import TwitterCard from "../TwitterCard";
 import InstagramCard from "../InstagramCard";
+import cardTypes from "../../enums/cardTypes";
 
 function Card({ post, img }) {
   return (
     <CardWrapper>
-      {post.service_name === "Manual" && <ManualCard post={post} img={img} />}
-      {post.service_name === "Twitter" && <TwitterCard post={post} />}
-      {post.service_name === "Instagram" && <InstagramCard post={post} img={img} />}
+      {post.service_name === cardTypes.MANUAL && <ManualCard post={post} img={img} />}
+      {post.service_name === cardTypes.TWITTER && <TwitterCard post={post} />}
+      {post.service_name === cardTypes.INSTAGRAM && <InstagramCard post={post} img={img} />}
       <CardTimestamp>{getRelativeTime(post.item_created)}</CardTimestamp>
     </CardWrapper>
   );

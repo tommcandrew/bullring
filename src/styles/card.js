@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import cardTypes from "../enums/cardTypes";
 import colors from "./colors";
 
 export const CardWrapper = styled.div`
@@ -43,7 +44,7 @@ export const CardUsername = styled.div`
 export const SocialIconWrapper = styled.div`
   width: 50px;
   height: 50px;
-  background: ${({ type }) => (type === "Twitter" ? colors.blueTwitter : "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)")}; 
+  background: ${({ type }) => (type === cardTypes.TWITTER ? colors.blueTwitter : "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)")}; 
   border-radius: 50%;
   display: flex;
   justify-content: center;

@@ -7,6 +7,7 @@ import {
   SocialIconWrapper,
 } from "../../styles/card";
 import { parseTwitter } from "../../utils/parsingUtils";
+import cardTypes from "../../enums/cardTypes";
 
 function TwitterCard({ post }) {
   const tweetHtml = parseTwitter(post.item_data.tweet);
@@ -14,7 +15,7 @@ function TwitterCard({ post }) {
 
   return (
     <>
-      <SocialIconWrapper $type="Twitter">
+      <SocialIconWrapper $type={cardTypes.TWITTER}>
         <FaTwitter size="2em" color="white" />
       </SocialIconWrapper>
       <CardUsername>{post.item_data.user.username}</CardUsername>

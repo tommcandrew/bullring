@@ -9,13 +9,14 @@ import {
   SocialIconWrapper,
 } from "../../styles/card";
 import { parseInstagram } from "../../utils/parsingUtils";
+import cardTypes from "../../enums/cardTypes";
 
 function InstagramCard({ post, img }) {
   const postHtml = parseInstagram(post.item_data.caption);
   const innerHtml = { __html: postHtml };
   return (
     <>
-      <SocialIconWrapper $type="Instagram">
+      <SocialIconWrapper $type={cardTypes.INSTAGRAM}>
         <FaInstagram size="2em" color="white" />
       </SocialIconWrapper>
       <CardContent>
