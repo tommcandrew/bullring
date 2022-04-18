@@ -11,6 +11,7 @@ export const CardWrapper = styled.div`
   @media (max-width: 700px) {
     margin: 0 1rem 3rem 1rem;
   }
+  box-shadow: 0px 1px 2px 2px rgba(50,50,50,0.1);
 `;
 
 export const CardText = styled.p`
@@ -44,7 +45,7 @@ export const CardUsername = styled.div`
 export const SocialIconWrapper = styled.div`
   width: 50px;
   height: 50px;
-  background: ${({ type }) => (type === cardTypes.TWITTER ? colors.blueTwitter : "linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)")}; 
+  background: ${({ type }) => (type === cardTypes.TWITTER ? colors.blueTwitter : colors.instagramGradient)}; 
   border-radius: 50%;
   display: flex;
   justify-content: center;

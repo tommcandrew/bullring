@@ -3,7 +3,7 @@ import styled, { keyframes, css } from "styled-components";
 import colors from "./colors";
 
 export const AppWrapper = styled.div`
-  padding: 5rem;
+  /* padding: 0 5rem 5rem 5rem; */
   .my-masonry-grid {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -16,8 +16,14 @@ export const AppWrapper = styled.div`
     background-clip: padding-box;
   }
   @media (max-width: 700px) {
-    padding: 2rem;
+    padding: 1rem;
   }
+`;
+
+export const Buttons = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const spin = keyframes`
@@ -66,10 +72,4 @@ export const LoadMoreButton = styled.button`
     }
     return null;
   }}
-`;
-
-export const Buttons = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;

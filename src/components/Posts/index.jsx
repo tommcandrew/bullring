@@ -11,8 +11,9 @@ const breakpointColumnsObj = {
 };
 
 const getImageUrl = (index) => {
-  const pageIndex = Math.floor(index / 20);
-  const imageIndex = index - (20 * pageIndex);
+  // so each post keeps the same image after loading more
+  const currentPageIndex = Math.floor(index / 20);
+  const imageIndex = index - 20 * currentPageIndex;
   return fashionImages[imageIndex];
 };
 
@@ -23,14 +24,14 @@ function Posts({ posts }) {
       className="my-masonry-grid"
       columnClassName="my-masonry-grid_column"
     >
-      {posts
-        .map((post, i) => (
-          <Card
-            key={Math.random()}
-            post={post}
-            img={getImageUrl(i)}
-          />
-        ))}
+      {posts.map((post, i) => (
+        <Card
+          // eslint-disable-next-line react/no-array-index-key
+          key={post.item_id + i}
+          post={post}
+          img={getImageUrl(i)}
+        />
+      ))}
     </Masonry>
   );
 }
