@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {
-  CardWrapper, CardContent, CardTimestamp,
+  CardWrapper, CardTimestamp,
 } from "../../styles/card";
 import { getRelativeTime } from "../../utils/dateUtils";
 import ManualCard from "../ManualCard";

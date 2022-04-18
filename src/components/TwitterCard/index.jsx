@@ -1,6 +1,7 @@
 import React from "react";
 import { FaTwitter } from "react-icons/fa";
 import twitter from "twitter-text";
+import colors from "../../styles/colors";
 import {
   CardUsername,
   CardText,
@@ -13,7 +14,7 @@ function TwitterCard({ post }) {
 
   return (
     <>
-      <SocialIconWrapper>
+      <SocialIconWrapper type="Twitter">
         <FaTwitter size="2em" color="white" />
       </SocialIconWrapper>
       <CardUsername>{post.item_data.user.username}</CardUsername>

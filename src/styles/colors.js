@@ -7,6 +7,7 @@ const colors = {
   purpleDarker: "#be0299",
   greyLight: "#eee",
   greyMedium: "#dcdada",
+  blueTwitter: "#1DA1F2",
 };
 
 export default colors;
