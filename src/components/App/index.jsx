@@ -4,6 +4,7 @@ import Masonry from "react-masonry-css";
 import Card from "../Card";
 import GlobalStyle from "../../styles/global";
 import { AppWrapper } from "../../styles/app";
+import Filter from "../Filter";
 import fashionImages from "../../assets/images/images";
 import { sortItemsByDate } from "../../utils/dateUtils";
 import sortOptions from "../../enums/sortOptions";
@@ -15,7 +16,9 @@ const breakpointColumnsObj = {
 };
 
 function App() {
-  const [posts, setPosts] = useState([]);
+  const [postsData, setPostsData] = useState([]);
+  const [sortedAndFilteredPosts, setSortedAndFilteredPosts] = useState([]);
+  const [filter, setFilter] = useState(null);
 
   async function getData() {
     const res = await axios.get(
@@ -28,15 +31,25 @@ function App() {
     async function updatePosts() {
       const items = await getData();
       const sortedPosts = sortItemsByDate(items, sortOptions.ASC);
-      setPosts(sortedPosts);
+      setPostsData(sortedPosts);
     }
     updatePosts();
   }, []);
 
+  useEffect(() => {
+    let filteredPosts;
+    if (filter) {
+      filteredPosts = postsData.filter((post) => post.service_name === filter);
+    } else {
+      filteredPosts = [...postsData];
+    }
+    setSortedAndFilteredPosts(filteredPosts);
+  }, [postsData, filter]);
+
   const handleLoadMore = async () => {
     const morePosts = await getData();
     const sortedPosts = sortItemsByDate(morePosts, sortOptions.ASC);
-    setPosts([...posts, ...sortedPosts]);
+    setPostsData([...postsData, ...sortedPosts]);
   };
 
   const getImageUrl = (index) => {
@@ -45,16 +58,25 @@ function App() {
     return fashionImages[imageIndex];
   };
 
+  const handleFilter = (selectedFilter) => {
+    if (filter && selectedFilter === filter) {
+      setFilter(null);
+    } else {
+      setFilter(selectedFilter);
+    }
+  };
+
   return (
     <>
       <GlobalStyle />
       <AppWrapper>
+        <Filter onFilter={handleFilter} />
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column"
         >
-          {posts
+          {sortedAndFilteredPosts
             .map((post, i) => (
               <Card
                 key={post.item_id}
