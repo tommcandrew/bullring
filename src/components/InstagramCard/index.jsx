@@ -15,7 +15,7 @@ function InstagramCard({ post, img }) {
   const innerHtml = { __html: postHtml };
   return (
     <>
-      <SocialIconWrapper type="Instagram">
+      <SocialIconWrapper $type="Instagram">
         <FaInstagram size="2em" color="white" />
       </SocialIconWrapper>
       <CardContent>

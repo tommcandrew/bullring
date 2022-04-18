@@ -82,14 +82,14 @@ function App() {
           {sortedAndFilteredPosts
             .map((post, i) => (
               <Card
-                key={post.item_id}
+                key={Math.random()}
                 post={post}
                 img={getImageUrl(i)}
               />
             ))}
         </Masonry>
         <Buttons>
-          <LoadMoreButton onClick={handleLoadMore} type="button" loading={fetchingMore}><span>More</span></LoadMoreButton>
+          <LoadMoreButton onClick={handleLoadMore} type="button" $loading={fetchingMore}><span>More</span></LoadMoreButton>
         </Buttons>
       </AppWrapper>
     </>

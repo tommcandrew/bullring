@@ -5,9 +5,9 @@ import { FilterWrapper, FilterButton } from "../../styles/filter";
 function Filter({ onFilter, currentFilter }) {
   return (
     <FilterWrapper>
-      <FilterButton isActive={currentFilter === "Manual"} onClick={() => onFilter("Manual")}>Manual</FilterButton>
-      <FilterButton isActive={currentFilter === "Twitter"} onClick={() => onFilter("Twitter")}>Twitter</FilterButton>
-      <FilterButton isActive={currentFilter === "Instagram"} onClick={() => onFilter("Instagram")}>Instagram</FilterButton>
+      <FilterButton $isActive={currentFilter === "Manual"} onClick={() => onFilter("Manual")}>Manual</FilterButton>
+      <FilterButton $isActive={currentFilter === "Twitter"} onClick={() => onFilter("Twitter")}>Twitter</FilterButton>
+      <FilterButton $isActive={currentFilter === "Instagram"} onClick={() => onFilter("Instagram")}>Instagram</FilterButton>
     </FilterWrapper>
   );
 }
