@@ -70,7 +70,7 @@ function App() {
     <>
       <GlobalStyle />
       <AppWrapper>
-        <Filter onFilter={handleFilter} />
+        <Filter onFilter={handleFilter} currentFilter={filter} />
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
